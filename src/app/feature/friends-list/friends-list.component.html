@@ -1,0 +1,55 @@
+<div class="p-4">
+    <h2 class="text-center my-4">Friends List</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Best Friend</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let friend of friends; let i =index">
+                <td>{{friend.name}}</td>
+                <td>{{friend.age}}</td>
+                <td>{{friend.email}}</td>
+                <td>{{friend.bff ? 'Yes' : 'No'}}</td>
+                <td><button (click)="delete(i)" class="btn btn-sm btn-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Add A Friend</h3>
+
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input [(ngModel)]="newfriend.name" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>
+                <input [(ngModel)]="newfriend.age" type="number">
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input [(ngModel)]="newfriend.email" type="text">
+            </td>
+        </tr>
+
+        <tr>
+            <td>bff</td>
+            <td>
+                <input [(ngModel)]="newfriend.bff" type="checkbox">
+            </td>
+
+        </tr>
+    </table>
+    <button (click)="addFriend()">Add Friend</button>
+
+</div>
